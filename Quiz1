@@ -1,0 +1,31 @@
+# importing combinations to get all subsets
+from itertools import combinations
+
+# getting input until 7 and storing in list
+number = int(input())
+numbers = []
+while number != 7 :
+  numbers.append(number)
+  number = int(input())
+# getting input of tagert and k
+target = int(input())
+k = int(input())
+
+# function to check wether sum possible or not
+def isExist(numbers,target,k):
+  # combinations retruns all the sublist of numbers with size k
+  subsets = list(combinations(numbers,k))
+  # iterating through every subset in subsets
+  for subset in subsets :
+    # checking sum of list equals given tasrget
+    if sum(subset) == target:
+      # if found retruns true
+      return True
+  # after iterating all if not found then false
+  return False
+
+# calling function to check 
+if isExist(numbers,target,k):
+  print("Yes")
+else:
+  print("No")
